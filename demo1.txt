@@ -3,17 +3,17 @@ Tehtävä 1.1: Git-repo
 Repo luotu githubiin (https://github.com/Jakkimatik/IoT/)
 README.md luotu, sisältää kuvauksen repon sisällöstä
 demo1.txt sisältää kuvauksen ekoissa demoissa tehdyistä tehtävistä
-Pystyin kloonaamaan repon komennolla 'git clone https://github.com/Jakkimatik/IoT/'
-Kohdan 1.2 julkisen ssh-avaimen lisäämisen jälkeen pystyin myös commitoimaan muutoksia
-mm. tähän demo1.txt -tiedostoon komennoilla 'git add *' & 'git commit -m "testi"' ja lopuksi
+Pystyin kloonaamaan repon raspiin komennolla 'git clone https://github.com/Jakkimatik/IoT/'
+Kohdan 1.2 julkisen ssh-avaimen lisäämisen jälkeen pystyin myös commitoimaan raspista muutoksia
+esim. tähän demo1.txt -tiedostoon komennoilla 'git add *' & 'git commit -m "testi"' ja lopuksi
 'git push origin master'
 
 Tehtävä 1.2: Raspbian
 
-Tiedostojärjestelmä laajennettu raspi-config:illa Advanced Optionsista 'Expand Filesystem' ja reboot.
-Komento 'df -h' kertoo että kaikki 16 gigaa on käytössä.
-Verkko-ongelmien vuoksi Raspbian flashatty uudelleen - tuoreessa Raspbianissa verkko toimii.
 Käyttäjän "pi" salasana vaihdettu.
+Wifi-ongelmien vuoksi Raspbian flashatty uudelleen - tuoreessa Raspbianissa luokan wifi tiea345-ohjaus toimii.
+Tiedostojärjestelmä laajennettu: 'sudo raspi-config' ja Advanced Optionsista 'Expand Filesystem' sekä reboot.
+Komento 'df -h' kertoo että kaikki 16 gigaa on todella käytössä.
 Locale, aikavyöhyke, näppäimistö-layout sekä wifi-country vaihdettu suomalaisiksi.
 Uusi käyttäjä luotu komennolla 'sudo adduser joonas' sekä määritetty sille salasana komennolla 'sudo passwd joonas'
 Uusi käyttäjä "joonas" lisätty sudo-ryhmään komennolla 'sudo usermod -aG sudo joonas'
@@ -21,10 +21,16 @@ Päivitykset ajettu sudona komennoin 'apt-get update' & 'apt-get upgrade' ja 'ap
 Raspberry:lle luotu julkinen ssh-avain komennolla ' ssh-keygen -t rsa -b 4096 -C "joalmikk@student.jyu.fi" '
 ssh-agentti käynnistetty taustalle komennolla ' eval "$(ssh-agent -s)" '
 Yksityinen ssh-avain lisätty agenttiin komennolla ' ssh-add ~/.ssh/id_rsa '
-Raspin julkinen ssh-avain lisätty gi-repoon.
+Raspin julkinen ssh-avain lisätty git-repoon.
 
 Tehtävä 1.3: Etäyhteys
 
 Luokan wifiin yhdistetyllä Android-puhelimella saatu ssh-yhteys IP:ssä 192.168.56.114 sijaitsevaan Raspberry PI:hin.
 git-repo kloonattu raspiin komennolla 'git clone https://github.com/Jakkimatik/IoT'
+
+
+Itsearviointi:
+1.1: Git-repo perustettu julkisena ja todettu kloonattavaksi: 3 p
+1.2: Raspbian konfiguroitu huolellisesti: 4 p
+1.3: Etäyhteys raspiin saatu SSH:lla samaan wifiin yhdistetystä Android-puhelimesta: 3 p
 
