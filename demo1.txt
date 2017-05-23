@@ -1,0 +1,7 @@
+Tehtävä 1.1: Git-repo
+
+Repo luotu githubiin (https://github.com/Jakkimatik/IoT/)
+README.md luotu, sisältää kuvauksen repon sisällöstä
+demo1.txt sisältää kuvauksen ekoissa demoissa tehdyistä tehtävistä
+Pystyin kloonaamaan repon komennolla 'git clone https://github.com/Jakkimatik/IoT/'
+
