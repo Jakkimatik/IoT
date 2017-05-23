@@ -17,6 +17,9 @@ Tiedostojärjestelmä laajennettu raspi-config:illa Advanced Optionsista 'Expand
 Raspberry:lle luotu julkinen ssh-avain komennolla ' ssh-keygen -t rsa -b 4096 -C "joalmikk@student.jyu.fi" '
 ssh-agentti käynnistetty taustalle komennolla ' eval "$(ssh-agent -s)" '
 Yksityinen ssh-avain lisätty agenttiin komennolla ' ssh-add ~/.ssh/id_rsa '
+Raspin julkinen ssh-avain lisätty gi-repoon.
+Luokan wifissä olevalla Android-puhelimella saatu ssh-yhteys IP:ssä 192.168.56.114 sijaitsevaan Raspberry PI:hin.
+git-repo kloonattu raspiin komennolla 'git clone https://github.com/Jakkimatik/IoT'
 
 
 
