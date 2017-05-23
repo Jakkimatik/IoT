@@ -8,10 +8,13 @@ Pystyin kloonaamaan repon komennolla 'git clone https://github.com/Jakkimatik/Io
 Tehtävä 1.2:
 
 Verkko-ongelmien vuoksi Raspbian flashatty uudelleen - tuoreessa Raspbianissa verkko toimii.
-Salasana vaihdettu.
+Käyttäjän "pi" salasana vaihdettu.
 Locale, aikavyöhyke, näppäimistö-layout sekä wifi-country vaihdettu suomalaisiksi.
 Uusi käyttäjä luotu komennolla 'sudo adduser joonas' sekä määritetty sille salasana komennolla 'sudo passwd joonas'
 Uusi käyttäjä "joonas" lisätty sudo-ryhmään komennolla 'sudo usermod -aG sudo joonas'
+Päivitykset ajettu sudona komennoin 'apt-get update' & 'apt-get upgrade' ja 'apt-get dist-upgrade'
+Tiedostojärjestelmä laajennettu raspi-config:illa.
+
 
 
 
