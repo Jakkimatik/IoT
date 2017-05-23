@@ -5,3 +5,13 @@ README.md luotu, sisältää kuvauksen repon sisällöstä
 demo1.txt sisältää kuvauksen ekoissa demoissa tehdyistä tehtävistä
 Pystyin kloonaamaan repon komennolla 'git clone https://github.com/Jakkimatik/IoT/'
 
+Tehtävä 1.2:
+
+Verkko-ongelmien vuoksi Raspbian flashatty uudelleen - tuoreessa Raspbianissa verkko toimii.
+Salasana vaihdettu.
+Locale, aikavyöhyke, näppäimistö-layout sekä wifi-country vaihdettu suomalaisiksi.
+Uusi käyttäjä luotu komennolla 'sudo adduser joonas' sekä määritetty sille salasana komennolla 'sudo passwd joonas'
+Uusi käyttäjä "joonas" lisätty sudo-ryhmään komennolla 'sudo usermod -aG sudo joonas'
+
+
+
