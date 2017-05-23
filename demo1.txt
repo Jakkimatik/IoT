@@ -12,9 +12,13 @@ Käyttäjän "pi" salasana vaihdettu.
 Locale, aikavyöhyke, näppäimistö-layout sekä wifi-country vaihdettu suomalaisiksi.
 Uusi käyttäjä luotu komennolla 'sudo adduser joonas' sekä määritetty sille salasana komennolla 'sudo passwd joonas'
 Uusi käyttäjä "joonas" lisätty sudo-ryhmään komennolla 'sudo usermod -aG sudo joonas'
-Päivitykset ajettu sudona komennoin 'apt-get update' & 'apt-get upgrade' ja 'apt-get dist-upgrade'
+Päivitykset ajettu sudona komennoin 'apt-get update' & 'apt-get upgrade' ja 'apt-get dist-upgrade' + siivous 'apt-get autoremove'
 Tiedostojärjestelmä laajennettu raspi-config:illa Advanced Optionsista 'Expand Filesystem' ja reboot.
-Raspberry:lle luotu julkinen SSH-avain komennolla 'sudo ssh-keygen'
+Raspberry:lle luotu julkinen ssh-avain komennolla ' ssh-keygen -t rsa -b 4096 -C "joalmikk@student.jyu.fi" '
+ssh-agentti käynnistetty taustalle komennolla ' eval "$(ssh-agent -s)" '
+Yksityinen ssh-avain lisätty agenttiin komennolla ' ssh-add ~/.ssh/id_rsa '
+
+
 
 
 
