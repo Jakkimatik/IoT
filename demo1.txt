@@ -4,6 +4,9 @@ Repo luotu githubiin (https://github.com/Jakkimatik/IoT/)
 README.md luotu, sisältää kuvauksen repon sisällöstä
 demo1.txt sisältää kuvauksen ekoissa demoissa tehdyistä tehtävistä
 Pystyin kloonaamaan repon komennolla 'git clone https://github.com/Jakkimatik/IoT/'
+Kohdan 1.2 julkisen ssh-avaimen lisäämisen jälkeen pystyin myös commitoimaan muutoksia
+mm. tähän demo1.txt -tiedostoon komennoilla 'git add *' & 'git commit -m "testi"' ja lopuksi
+'git push origin master'
 
 Tehtävä 1.2: Raspbian
 
@@ -25,4 +28,3 @@ Tehtävä 1.3: Etäyhteys
 Luokan wifiin yhdistetyllä Android-puhelimella saatu ssh-yhteys IP:ssä 192.168.56.114 sijaitsevaan Raspberry PI:hin.
 git-repo kloonattu raspiin komennolla 'git clone https://github.com/Jakkimatik/IoT'
 
-testilisäys
