@@ -13,7 +13,8 @@ Locale, aikavyöhyke, näppäimistö-layout sekä wifi-country vaihdettu suomala
 Uusi käyttäjä luotu komennolla 'sudo adduser joonas' sekä määritetty sille salasana komennolla 'sudo passwd joonas'
 Uusi käyttäjä "joonas" lisätty sudo-ryhmään komennolla 'sudo usermod -aG sudo joonas'
 Päivitykset ajettu sudona komennoin 'apt-get update' & 'apt-get upgrade' ja 'apt-get dist-upgrade'
-Tiedostojärjestelmä laajennettu raspi-config:illa.
+Tiedostojärjestelmä laajennettu raspi-config:illa Advanced Optionsista 'Expand Filesystem'
+
 
 
 
