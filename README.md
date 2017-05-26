@@ -7,5 +7,3 @@ demo2.txt vastaavasti jne.
 
 README.md - Tämä tiedosto
 
-Tekijä: Joonas Mikkonen (joalmikk@student.jyu.fi)
-
