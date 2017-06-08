@@ -1,0 +1,24 @@
+Tehtävä 3.1: Sensori toimintakuntoon ja dataa ruutuun
+-----------------------------------------------------
+
+Koodi mukaillen Adafruit_Python_DHT-kirjaston esimerkkiä simpletest.py
+Koodi: https://github.com/kekonative/IoT/blob/master/sensori.py
+
+Kytkennät mallikuvan tapaan:
+http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko3/DHT11_kytkenta.png
+
+Tehtävä 3.2: Google Sheets
+--------------------------
+
+Koodi mukaillen Adafruit_Python_DHT-kirjaston esimerkkiä google_spreadsheet.py
+Koodi: https://github.com/kekonative/IoT/blob/master/google_spreadsheet.py
+
+Loin isamail.tunnuksillani OAuth2-oikeudet ja latasin service key -.jsonin ensin kotikoneelleni,
+siitä WinSCP:llä users.jyu.fi-kansioon ja täältä raspille komennolla:
+'wget users.jyu.fi/~joalmikk/service_key_esimerkki.json'
+
+client_email: pusher-marja@iot-mittauksia.iam.gserviceaccount.com
+
+Jaoin Google Driveen luomani spreadsheetin yo. client_emailille sekä opettajien ryhmälle tiea345kesa2017@gmail.com
+
+Lämpötila- ja kosteusmittaustulokset päivittyvät nyt kauniisti Sheetsiin asettamallani frekvenssillä (5 sekuntia).
