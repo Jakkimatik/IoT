@@ -1,0 +1,30 @@
+Tehtävä 2.1: Vilkuta lediä
+--------------------------
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo2/vilkuta.py (ajettu Geanylla)
+
+Kytkennät mallikuvan tapaan:
+http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko2/ledin_kytkennan_vaiheet/4maa.png
+
+Tehtävä 2.2 - Lue painiketta ja PIR-sensoria
+--------------------------------------------
+
+| Painike |
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo2/painike.py
+
+Kytkennät mallikuvan tapaan (sisältäen myös mekaanisen alasvetovastuksen):
+http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko2/painike_kytkentamalli.png
+
+| PIR-sensori |
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo2/pir.py
+
+Kytkin punaisen johdon suoraan 5V virtaan (fyysinen pinni 2), mustan johdon maahan (fyysinen pinni 6) ja laitoin sen vierestä varulta johdon reunimmaiseen maalinjaan
+sekä keltaisen johdon pinniin SCLK (koodissa BCM pinni 11, fyysinen pinni 23)
+
+Tehtävä 2.3 - Liikennevalot
+---------------------------
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo2/liikennevalot.py
+

@@ -1,9 +1,9 @@
 # IoT
 TIEA345 IoT-prototyypit -kurssin (JYU) demotehtävä-repo
 
-demo1.txt - Sisältää kuvauksen ensimmäisissä demoissa tehdyistä tehtävistä
+demo1/demo1.txt - Sisältää kuvauksen ensimmäisissä demoissa tehdyistä tehtävistä
 
-demo2.txt jne. vastaavasti
+demo2/demo2.txt vastaavasti jne.
 
 README.md - Tämä tiedosto
 
