@@ -1,6 +1,0 @@
-Tehtävä 2.1: Vilkuta lediä
-
-Valokuva kytkennöistä: https://github.com/kekonative/IoT/teht21.jpg
-
-Koodi: https://github.com/kekonative/IoT/vilkuta.py
-
