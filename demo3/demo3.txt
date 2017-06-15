@@ -38,9 +38,26 @@ Testivideo otettu oletusta pienemmällä resoluutiolla komennolla 'raspivid -w 8
 toistettu omxplayerilla ('omxplayer testi.h264') ja ladattu repoon:
 https://github.com/kekonative/IoT/blob/master/demo3/testi.h264
 
-Tehtävä 3.5, Liikkeentunnistava kamera
+Tehtävä 3.5: Liikkeentunnistava kamera
 --------------------------------------
 
 Koodi: https://github.com/kekonative/IoT/blob/master/demo3/pir_kamera.py
 
 Kun liikettä tunnistetaan, kamera ottaa kuvan JPG-muodossa tiedostonimellä 'kuva' + time.asctime() + '.jpg' missä time-kirjaston funktio time.asctime() palauttaa tämänhetkisen ajankohdan stringinä.
+
+Tehtävä 3.6: Kuva tasatunnein
+-----------------------------
+
+Python-ohjelma ottaa yhden valokuvan JPG-muodossa tiedostonimellä 'Kuva' + time.asctime() + '.jpg'
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo3/otakuva.py
+
+Luodaan ohjelmalle tasatunnein ajettava crontab:
+
+Käännetään ohjelma komennolla ' echo "python -q otakuva.py" > otakuva '
+Siirretään se oikeaan kansioon ' mv otakuva /etc/cron.hourly/ '
+Annetaan sille tarvittavat oikeudet:
+chown -R root /etc/cron.hourly
+chmod 2755 /etc/cron.hourly/otakuva
+Ja käynnistetään crond uudelleen: ' /etc/init.d/cron restart '
+
