@@ -36,7 +36,10 @@ Otin microSD-kortin raspista ja liitin sen SD-adapterilla kortinlukijalliseen l�
 ja formatoin siihen yhden ison FAT32-osion ubuntun gpartedilla: http://users.jyu.fi/~joalmikk/SD_osiointi.png
 Kopioin ja purin osiolle NOOBS Liten (https://downloads.raspberrypi.org/NOOBS_lite_latest) ja boottasin sen sitten raspissa.
 Verkko toimi NOOBS Lite:n asennuksessa kun olin kytkenyt raspin Ethernet-kaapelilla DHCP-asetukset tarjoavaan reitittimeen.
-Valitsin asennettavaksi Raspbian Liten (ei Desktoppia) jonka NOOBS latasi verkosta, ja asensi sen osioiden samalla kortin uudestaan. Asennuksen valmistuttua pääsin kirjautumaan shelliin oletustunnuksilla pi/raspberry. Vaihdoin raspi-configista locale-asetukset ja ajoin päivitykset komennoin 'apt-get update' & 'apt-get upgrade' jonka jälkeen asensin lightdm-työpöytäympäristön komennolla 'apt-get install lightdm'
+Valitsin asennettavaksi Raspbian Liten (ei Desktoppia) jonka NOOBS latasi verkosta, ja asensi sen osioiden samalla kortin
+uudestaan. Asennuksen valmistuttua pääsin kirjautumaan shelliin oletustunnuksilla pi/raspberry. Vaihdoin raspi-configista locale-
+asetukset ja ajoin päivitykset komennoin 'apt-get update' & 'apt-get upgrade' jonka jälkeen asensin lightdm-työpöytäympäristön
+komennolla 'apt-get install lightdm'
 
 Itsearviointi:
 1.1: Git-repo perustettu julkisena ja todettu kloonattavaksi: 3 p
