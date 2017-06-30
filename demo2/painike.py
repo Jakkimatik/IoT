@@ -3,8 +3,8 @@ import RPi.GPIO as GPIO
 import time
 
 # LEDiin tulee virtaa pinnista #20 ja painikkeeseen pinnista #6
-LED=20
-PAINIKE=6
+LED=5
+PAINIKE=20
 
 # Asetetaan BCM-numerointi
 GPIO.setmode (GPIO.BCM)

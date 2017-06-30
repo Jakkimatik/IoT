@@ -3,8 +3,7 @@ Tehtävä 2.1: Vilkuta lediä
 
 Koodi: https://github.com/kekonative/IoT/blob/master/demo2/vilkuta.py (ajettu Geanylla)
 
-Kytkennät mallikuvan tapaan:
-http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko2/ledin_kytkennan_vaiheet/4maa.png
+Kytkennät mallikuvan tapaan: http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko2/ledin_kytkennan_vaiheet/4maa.png
 
 Tehtävä 2.2 - Lue painiketta ja PIR-sensoria
 --------------------------------------------
@@ -13,8 +12,7 @@ Tehtävä 2.2 - Lue painiketta ja PIR-sensoria
 
 Koodi: https://github.com/kekonative/IoT/blob/master/demo2/painike.py
 
-Kytkennät mallikuvan tapaan (sisältäen myös mekaanisen alasvetovastuksen):
-http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko2/painike_kytkentamalli.png
+Kytkennät mallikuvan tapaan (sisältäen myös mekaanisen alasvetovastuksen): http://users.jyu.fi/~helmaaka/opetus/tiea345/2017-kesa/kuvat_viikko2/painike_kytkentamalli.png
 
 | PIR-sensori |
 
@@ -27,4 +25,27 @@ Tehtävä 2.3 - Liikennevalot
 ---------------------------
 
 Koodi: https://github.com/kekonative/IoT/blob/master/demo2/liikennevalot.py
+
+Video: http://users.jyu.fi/~joalmikk/liikennevalot.mp4
+
+Tehtävä 2.4 - Signaalivalo jalankulkijoille
+-------------------------------------------
+
+Sopivia vastuksia oli vain 6 kappaletta? (3 liikennevaloledeille, 2 jalankulkijoiden valoille ja 1 painikkeen alasvetovastukselle) joten käytin tässä jalankulkijoiden signaalivalona jo kytkettynä ollutta keltaista lediä.
+Kytkin painikkeelle mekaanisen alasvetovastuksen.
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo2/signaalivalo.py
+
+Video: http://users.jyu.fi/~joalmikk/signaalivalo.mp4
+
+Tehtävä 2.5 - Liiketunnistin mukaan liikennevaloihin
+----------------------------------------------------
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo2/liiketunnistin.py
+
+Video: http://users.jyu.fi/~joalmikk/liiketunnistin.mp4
+
+Kytkennät fritzingillä: https://github.com/kekonative/IoT/blob/master/demo2/liiketunnistin.png
+
+Valokuva kytkennöistä: https://github.com/kekonative/IoT/blob/master/demo2/liiketunnistin.jpg
 

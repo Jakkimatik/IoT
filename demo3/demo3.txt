@@ -54,10 +54,14 @@ Koodi: https://github.com/kekonative/IoT/blob/master/demo3/otakuva.py
 
 Luodaan ohjelmalle tasatunnein ajettava crontab:
 
-Käännetään ohjelma komennolla ' echo "python -q otakuva.py" > otakuva '
-Siirretään se oikeaan kansioon ' mv otakuva /etc/cron.hourly/ '
-Annetaan sille tarvittavat oikeudet:
-chown -R root /etc/cron.hourly
-chmod 2755 /etc/cron.hourly/otakuva
-Ja käynnistetään crond uudelleen: ' /etc/init.d/cron restart '
+Muokataan crontabia ' sudo pico /etc/crontab ' (nämä ajetaan kaikille käyttäjille)
+Lisätään rivi "01 *    * * *   root    python /home/pi/IoT/demo3/otakuva.py"
+Käynnistetään crond uudelleen: ' sudo /etc/init.d/cron restart '
 
+Tehtävä 3.7: Web-palvelin kuville
+---------------------------------
+
+Asensin nginxin ' sudo apt-get install nginx '
+Muokkasin otakuva.py:n tallentamaan kuvan tiedostoon /var/www/html/latest.jpg
+Käynnistin nginxin ' sudo /etc/init.d/nginx start '
+Nyt uusin kuva näkyi selaimella osoitteessa http://localhost/latest.jpg

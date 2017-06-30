@@ -1,0 +1,113 @@
+Tehtävä 4.1: Motionin asennus
+-----------------------------
+
+Ajamalla komennon ' sudo modprobe bcm2835-v4l2 ' sain kameran näkymään /dev/video0 :na.
+Asensin Motionin ' sudo apt-get install motion '
+Otin kopion sen configista kotihakemistoni alle:
+
+mkdir motion    
+sudo cp /etc/motion/motion.conf ~/motion/motion.conf  
+sudo chown pi:pi ~/motion/motion.conf
+
+Muutin konfiguraatiotiedostoon /etc/motion/motion.conf pid-tiedostoksi käyttäjän kotihakemistossa sijaitsevan:
+process_id_file /home/pi/motion/motion.pid
+ja lokitiedostoksi kommentointimerkin ';' edestä poistaen:
+logfile /home/pi/motion/motion.log
+sekä kuvien sijainniksi:
+target_dir /home/pi/Pictures
+
+Käynnistin Motionin:
+root@marja:/home/pi# motion
+[0] [NTC] [ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
+[0] [ALR] [ALL] conf_cmdparse: Unknown config option "sdl_threadnr"
+[0] [NTC] [ALL] motion_startup: Motion 3.2.12+git20140228 Started
+[0] [NTC] [ALL] motion_startup: Logging to file (/home/pi/motion/motion.log)
+
+Tehtävä 4.2: Kuvia ennen liikettä
+---------------------------------
+
+'service motion status' kertoi seuraavaa:
+kesä 15 16:17:41 marja motion[6812]: Not starting motion daemon, disabled via /etc/default/motion ... (warning).
+joten laitoin motion daemonin päälle määrittämällä tiedostossa /etc/default/daemon asetuksen 'start_motion_daemon=yes'
+
+Määritin /etc/motion/motion.conf:fiin otettavaksi yhden kuvan sekunnissa:
+framerate 1
+Kuvia otetaan korkeintaan sekunnin välein:
+minimum_frame_time 1
+Liikkeentunnistusta edeltävien kuvien lukumäärä = 2:
+pre_capture 2
+Otetaan 5 kuvaa (5 sekunnissa koska framerate = 1) liikkeentunnistuksen jälkeen:
+post_capture 5
+
+Käynnistettyäni Motionin uudelleen '/etc/init.d/motion stop' ja 'motion' kuvia/videota rupesi syntymään annetuin määrityksin (2 kuvaa ennen tunnistuksen aloittamista ja 5 kuvaa sen jälkeen) heilutettuani kameralle:
+
+root@marja:/home/pi/Pictures# ls
+3-20170615172624-00.jpg  03-20170615172625-00.jpg  03-20170615172626-00.jpg  03-20170615172626.avi  03-20170615172627-00.jpg  03-20170615172628-00.jpg  03-20170615172629-00.jpg  03-20170615172630-00.jpg
+
+Tehtävä 4.3: 10 sekunnin video
+------------------------------
+
+Näillä motion.conf -asetuksilla sain kaapattua videota 10 sekuntia kerrallaan, yhden kuvan per sekunti, riippumatta siitä jatkuiko liike vai ei.
+
+framerate 2
+minimum_frame_time 1
+pre_capture 2
+post_capture 10
+event_gap 10		(aika viimeisestä tunnistetusta liikkeestä liikkeentunnistus-eventin/kuvaamisen päättymiseen, vakio-asetuksella 60 kuvattaisiin 6 kpl 10 sekunnin videoita vaikka mitään ei tapahtuisi)
+max_movie_time 10
+output_pictures off	(ei erillisiä kuvia levytilan säästämiseksi)
+
+Tehtävä 4.4: Keskusta
+---------------------
+
+Asetin motion.conf:iin 'area_detect 456' ja poistin kommentoinnin. Nyt tunnistaessaan liikettä kameranäkymän keskimmäisessä vaakakolmanneksessa, Motionin tulisi ajaa  asetuksen 'on_area_detected' määrittämä komento
+joten poistin siltä kommentoinnin asettaen 'on_area_detected /usr/lib/python /home/pi/IoT/demo4/otakuva.py' mikä ajaa skriptin joka ottaa picamera:lla valokuvan tiedostoon /home/pi/Pictures/keskella_liiketta.jpg
+Annoin motionille oikeudet ajaa kyseistä skriptiä komennolla 'chown motion:motion /home/pi/IoT/demo4/otakuva.py' sekä 'chmod a+x otakuva.py' ja käynnistin motionin. Kokeiltuani lukuisilla tavoilla, myös shell-skriptillä
+tyyliin 'on_area_detected sh /home/pi/motion/otakuva.sh' missä otakuva.sh:ssa on shebangin lisäksi rivi "/usr/bin/python /home/pi/motion/otakuva.py" ja josta tein chmodilla/chownilla motionille ajettavan jouduin
+toteamaan viritykseni toimimattomaksi..
+
+
+Tehtävä 4.5: Asennus
+--------------------
+
+Asensin raspille esikäännetyn OpenCV:n sivun (https://github.com/jabelone/OpenCV-for-Pi) ohjeiden mukaisesti - varmistin lopuksi python-kirjaston toimivuuden;
+
+root@marja:/home/pi/Downloads# python
+Python 2.7.9 (default, Sep 17 2016, 20:26:04) 
+[GCC 4.9.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv2
+>>> cv2.__version__
+'3.1.0'
+
+Tehtävä 4.6: Vertailu
+---------------------
+
+Asensin kuvaajien piirtämiseen tarvittavan kirjaston komennolla 'pip install matplotlib'
+Mukaillen koodiesimerkkiä http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_matcher/py_matcher.html#brute-force-matching-with-orb-descriptors rakensin omani:
+
+https://github.com/kekonative/IoT/blob/master/demo4/vertailu.py
+
+(Kuvat)
+https://github.com/kekonative/IoT/blob/master/demo4/Euro_20_cent.jpg
+https://github.com/kekonative/IoT/blob/master/demo4/Malta_euro.jpg
+https://github.com/kekonative/IoT/blob/master/demo4/vertaustulos.png
+
+
+Tehtävä 4.7: Tunnista kasvot
+----------------------------
+
+Kloonasin opencv-repon päästäkseni käsiksi tarvittaviin haarcascade-malleihin: 'git clone https://github.com/opencv/opencv'
+Kopioin opencv/data/haarcascades -hakemistosta tiedostot haarcascade_eye.xml & haarcascade_frontalface_default.xml samaan hakemistoon python-skriptini kanssa.
+Skripti on lopun cv2.imwrite()-toimintoa lukuunottamatta suoraan dokumentaation esimerkistä: http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo4/kasvot.py
+Kuva: https://github.com/kekonative/IoT/blob/master/demo4/ihminen.jpg
+Kasvot sekä silmä tunnistettu: https://github.com/kekonative/IoT/blob/master/demo4/ihminen_validated.png
+
+Tehtävä 4.8: Picameralla kasvot
+-------------------------------
+
+Koodi: https://github.com/kekonative/IoT/blob/master/demo4/otakuva_tunnista_kasvot.py
+
+Testasin itseeni onnistuneesti.

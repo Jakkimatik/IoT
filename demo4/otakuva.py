@@ -5,4 +5,4 @@ import time
 # Maaritetaan kamera
 camera = picamera.PiCamera()
 
-camera.capture('/var/www/html/latest.jpg')
+camera.capture('/home/pi/motion/keskella_liiketta.jpg')
