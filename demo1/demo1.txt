@@ -41,5 +41,5 @@ Itsearviointi:
 1.1: Git-repo perustettu julkisena ja todettu kloonattavaksi: 3 p
 1.2: Raspbian konfiguroitu ja päivitetty: 4 p
 1.3: Etäyhteys SSH:lla raspiin saatu  samaan wifiin yhdistetystä Android-puhelimesta: 3 p
-1.4: Formatoin SD-kortin FAT32:ksi, kopioin sinne NOOBS Liten ja boottasin raspissa asentaen ja konfiguroiden Raspbian Liten
+1.4: Formatoin SD-kortin FAT32:ksi, kopioin sinne NOOBS Liten ja boottasin raspissa asentaen ja konfiguroiden Raspbian Liten: 2p
 
