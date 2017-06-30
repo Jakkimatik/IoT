@@ -30,9 +30,16 @@ Luokan wifiin yhdistetyllä Android-puhelimella saatu ssh-yhteys IP:ssä 192.168
 git-repo kloonattu raspiin komennolla 'git clone https://github.com/kekonative/IoT' ja repon päivittäminen todettu toimivaksi
 myös etäyhteyden kautta kohdan 1.1. tapaan
 
+Tehtävä 1.4: Raspbianin kirjoittaminen
+
+Otin microSD-kortin raspista ja liitin sen SD-adapterilla kortinlukijalliseen läppäriin. Poistin kortilta olemassaolevat osiot ja formatoin siihen yhden ison FAT32-osion ubuntun gpartedilla: http://users.jyu.fi/~joalmikk/SD_osiointi.png
+Kopioin ja purin osiolle NOOBS Liten (https://downloads.raspberrypi.org/NOOBS_lite_latest) ja boottasin sen sitten raspissa.
+Verkko toimi NOOBS Lite:n asennuksessa kun olin kytkenyt raspin Ethernet-kaapelilla DHCP-asetukset tarjoavaan reitittimeen.
+Valitsin asennettavaksi Raspbian Liten (ei Desktoppia) jonka NOOBS latasi verkosta, ja asensi sen osioiden samalla kortin uudestaan. Asennuksen valmistuttua pääsin kirjautumaan shelliin oletustunnuksilla pi/raspberry. Vaihdoin raspi-configista locale-asetukset ja ajoin päivitykset komennoin 'apt-get update' & 'apt-get upgrade' jonka jälkeen asensin lightdm-työpöytäympäristön komennolla 'apt-get install lightdm'
 
 Itsearviointi:
 1.1: Git-repo perustettu julkisena ja todettu kloonattavaksi: 3 p
 1.2: Raspbian konfiguroitu ja päivitetty: 4 p
 1.3: Etäyhteys SSH:lla raspiin saatu  samaan wifiin yhdistetystä Android-puhelimesta: 3 p
+1.4: Formatoin SD-kortin FAT32:ksi, kopioin sinne NOOBS Liten ja boottasin raspissa asentaen ja konfiguroiden Raspbian Liten
 
