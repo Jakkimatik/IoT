@@ -63,7 +63,7 @@ Tehtävä 4.4: Keskusta
 Asetin motion.conf:iin 'area_detect 456' ja poistin kommentoinnin. Nyt tunnistaessaan liikettä kameranäkymän keskimmäisessä
 vaakakolmanneksessa, Motion ajaa asetuksen 'on_area_detected' määrittämän komennon joten poistin siltä kommentoinnin asettaen
 'on_area_detected curl -s -o /dev/null http://localhost:8080/0/action/snapshot' joka pyytää Motionin web-interfacea ottamaan
-JPG-kuvan vakio-kuvakansioon liittäen aina uusimpaan kuvaan symbolisen linkin tiedostonimellä snapshot.jpg
+JPG-kuvan vakio-kuvakansioon liittäen aina uusimpaan kuvaan symbolisen linkin tiedostonimellä lastsnap.jpg
 
 Tehtävä 4.5: Asennus
 --------------------
