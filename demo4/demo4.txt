@@ -60,12 +60,10 @@ output_pictures off	(ei erillisiä kuvia levytilan säästämiseksi)
 Tehtävä 4.4: Keskusta
 ---------------------
 
-Asetin motion.conf:iin 'area_detect 456' ja poistin kommentoinnin. Nyt tunnistaessaan liikettä kameranäkymän keskimmäisessä vaakakolmanneksessa, Motionin tulisi ajaa  asetuksen 'on_area_detected' määrittämä komento
-joten poistin siltä kommentoinnin asettaen 'on_area_detected /usr/lib/python /home/pi/IoT/demo4/otakuva.py' mikä ajaa skriptin joka ottaa picamera:lla valokuvan tiedostoon /home/pi/Pictures/keskella_liiketta.jpg
-Annoin motionille oikeudet ajaa kyseistä skriptiä komennolla 'chown motion:motion /home/pi/IoT/demo4/otakuva.py' sekä 'chmod a+x otakuva.py' ja käynnistin motionin. Kokeiltuani lukuisilla tavoilla, myös shell-skriptillä
-tyyliin 'on_area_detected sh /home/pi/motion/otakuva.sh' missä otakuva.sh:ssa on shebangin lisäksi rivi "/usr/bin/python /home/pi/motion/otakuva.py" ja josta tein chmodilla/chownilla motionille ajettavan jouduin
-toteamaan viritykseni toimimattomaksi..
-
+Asetin motion.conf:iin 'area_detect 456' ja poistin kommentoinnin. Nyt tunnistaessaan liikettä kameranäkymän keskimmäisessä
+vaakakolmanneksessa, Motion ajaa asetuksen 'on_area_detected' määrittämän komennon joten poistin siltä kommentoinnin asettaen
+'on_area_detected curl -s -o /dev/null http://localhost:8080/0/action/snapshot' joka pyytää Motionin web-interfacea ottamaan
+JPG-kuvan vakio-kuvakansioon liittäen aina uusimpaan kuvaan symbolisen linkin tiedostonimellä snapshot.jpg
 
 Tehtävä 4.5: Asennus
 --------------------
