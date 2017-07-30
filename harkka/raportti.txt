@@ -1,22 +1,21 @@
-Web-palvelimelle tietonsa l‰hett‰v‰ s‰‰asema Raspberry Pi 3:lle
+Web-palvelimelle tietonsa l√§hett√§v√§ s√§√§asema Raspberry Pi 3:lle
 ---------------------------------------------------------------
-(harjoitustyˆn‰ kurssille TIEA345 IoT-prototyypit kes‰ll‰ 2017)
+(harjoitusty√∂n√§ kurssille TIEA345 IoT-prototyypit kes√§ll√§ 2017)
 
-Asensin SD-kortille uusimman Raspbianin NOOBS:in avulla, vaihdoin t‰h‰n salasanan & locale-asetukset ja asensin uusimmat p‰ivitykset komennoin 'apt-get update & apt-get dist-upgrade'.
-Adafruit DHT11-sensorin lukemiseen tarvittavan kirjaston noudin githubista komennolla 'git clone https://github.com/adafruit/Adafruit_Python_DHT.git', asensin sen k‰ytˆss‰ tarvittavat
-python-kirjastot: 'apt-get install build-essential python-dev python-openssl' ja ajoin sitten Adafruit-kirjaston asennusskriptin hakemistossa /Adafruit_Python_DHT/ komennolla 'python setup.py install'. Sammutin raspin ja yhdistin siihen kameran sek‰ kytkent‰laudan johon olin asetellut ylˆsvetovastuksellisen kytkenn‰n DHT11-sensorille, sensoridatan lukemiseksi olin kytkenyt DHT11:n kakkospinnin BCM-pinniin numero 7 ("CE1" Adafruit T-Cobbler Plussalla). K‰ynnistetty‰ni laitteen otin kameran k‰yttˆˆn raspi-configista ja uudelleenk‰ynnistin sen.
+Asensin SD-kortille uusimman Raspbianin NOOBS:in avulla, vaihdoin t√§h√§n salasanan & locale-asetukset ja asensin uusimmat p√§ivitykset komennoin 'apt-get update & apt-get dist-upgrade'.
+Adafruit DHT11-sensorin lukemiseen tarvittavan kirjaston noudin githubista komennolla 'git clone https://github.com/adafruit/Adafruit_Python_DHT.git', asensin sen k√§yt√∂ss√§ tarvittavat
+python-kirjastot: 'apt-get install build-essential python-dev python-openssl' ja ajoin sitten Adafruit-kirjaston asennusskriptin hakemistossa /Adafruit_Python_DHT/ komennolla 'python setup.py install'. Sammutin raspin ja yhdistin siihen kameran sek√§ kytkent√§laudan johon olin asetellut yl√∂svetovastuksellisen kytkenn√§n DHT11-sensorille, sensoridatan lukemiseksi olin kytkenyt DHT11:n kakkospinnin BCM-pinniin numero 7 ("CE1" Adafruit T-Cobbler Plussalla). K√§ynnistetty√§ni laitteen otin kameran k√§ytt√∂√∂n raspi-configista ja uudelleenk√§ynnistin sen.
 
-Kytkent‰: DHT11.png
+Kytkent√§: https://github.com/kekonative/IoT/blob/master/harkka/DHT11.png
+Koodi: https://github.com/kekonative/IoT/blob/master/harkka/saahavainto.py
 
-Raspbianin mukana toimitetulla Geanylla kirjoittamani 'saahavainto.py' lukee l‰mpˆtilan ja ilmankosteuden sensorilta, m‰‰ritt‰‰ havainnolle ajankohdan ja ottaa s‰‰havainto-kuvan picameralla - muodostaen t‰st‰ kaikesta HTML-tiedoston 'index.htm'. Asetin t‰m‰n ajettavaksi 15 minuutin v‰lein system-wide crontabiin '/etc/crontab' lis‰ten sinne rivin: 
+Raspbianin mukana toimitetulla Geanylla kirjoittamani 'saahavainto.py' lukee l√§mp√∂tilan ja ilmankosteuden sensorilta, m√§√§ritt√§√§ havainnolle ajankohdan ja ottaa s√§√§havainto-kuvan picameralla - muodostaen t√§st√§ kaikesta HTML-tiedoston 'index.htm'. Asetin t√§m√§n ajettavaksi 15 minuutin v√§lein system-wide crontabiin '/etc/crontab' lis√§ten sinne rivin: 
 */15 *    * * *   root    python /home/pi/IoT/harkka/saahavainto.py
-sek‰ aina minuuttia myˆhemmin havaintojen l‰hett‰miseksi users.jyu.fi-webtilaani:
+sek√§ aina minuuttia my√∂hemmin havaintojen l√§hett√§miseksi users.jyu.fi-webtilaani:
 1,16,31,46 *    * * *   root    scp /home/pi/IoT/harkka/havainnot/*.* joalmikk@halava.cc.jyu.fi:/autowebhome/home/joalmikk/html/saa/
 
-Koodi: saahavainto.py
-
-Loin havaintojen automaattista l‰hett‰mist‰ varten raspille ssh-avaimen komennolla 'ssh-keygen -t rsa' ja l‰hetin sen halavalle sallittujen ssh-avainten kansioon:
+Loin havaintojen automaattista l√§hett√§mist√§ varten raspille ssh-avaimen komennolla 'ssh-keygen -t rsa' ja l√§hetin sen halavalle sallittujen ssh-avainten kansioon:
 'scp /root/.ssh/id_rsa.pub joalmikk@halava.cc.jyu.fi:.ssh/authorized_keys'
 
-K‰ynnistin crontabin uudelleen komennolla '/etc/init.d/cron restart' ja sain havaita ett‰ aseman varttitunnin v‰lein tekem‰t s‰‰havainnot p‰ivittyv‰t nyt n‰kyville World Wide Webiin osoitteeseen:
+K√§ynnistin crontabin uudelleen komennolla '/etc/init.d/cron restart' ja sain havaita ett√§ aseman varttitunnin v√§lein tekem√§t s√§√§havainnot p√§ivittyv√§t nyt n√§kyville World Wide Webiin osoitteeseen:
 http://users.jyu.fi/~joalmikk/saa/
