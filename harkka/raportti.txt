@@ -1,0 +1,22 @@
+Web-palvelimelle tietonsa lähettävä sääasema Raspberry Pi 3:lle
+---------------------------------------------------------------
+(harjoitustyönä kurssille TIEA345 IoT-prototyypit kesällä 2017)
+
+Asensin SD-kortille uusimman Raspbianin NOOBS:in avulla, vaihdoin tähän salasanan & locale-asetukset ja asensin uusimmat päivitykset komennoin 'apt-get update & apt-get dist-upgrade'.
+Adafruit DHT11-sensorin lukemiseen tarvittavan kirjaston noudin githubista komennolla 'git clone https://github.com/adafruit/Adafruit_Python_DHT.git', asensin sen käytössä tarvittavat
+python-kirjastot: 'apt-get install build-essential python-dev python-openssl' ja ajoin sitten Adafruit-kirjaston asennusskriptin hakemistossa /Adafruit_Python_DHT/ komennolla 'python setup.py install'. Sammutin raspin ja yhdistin siihen kameran sekä kytkentälaudan johon olin asetellut ylösvetovastuksellisen kytkennän DHT11-sensorille, sensoridatan lukemiseksi olin kytkenyt DHT11:n kakkospinnin BCM-pinniin numero 7 ("CE1" Adafruit T-Cobbler Plussalla). Käynnistettyäni laitteen otin kameran käyttöön raspi-configista ja uudelleenkäynnistin sen.
+
+Kytkentä: DHT11.png
+
+Raspbianin mukana toimitetulla Geanylla kirjoittamani 'saahavainto.py' lukee lämpötilan ja ilmankosteuden sensorilta, määrittää havainnolle ajankohdan ja ottaa säähavainto-kuvan picameralla - muodostaen tästä kaikesta HTML-tiedoston 'index.htm'. Asetin tämän ajettavaksi 15 minuutin välein system-wide crontabiin '/etc/crontab' lisäten sinne rivin: 
+*/15 *    * * *   root    python /home/pi/IoT/harkka/saahavainto.py
+sekä aina minuuttia myöhemmin havaintojen lähettämiseksi users.jyu.fi-webtilaani:
+1,16,31,46 *    * * *   root    scp /home/pi/IoT/harkka/havainnot/*.* joalmikk@halava.cc.jyu.fi:/autowebhome/home/joalmikk/html/saa/
+
+Koodi: saahavainto.py
+
+Loin havaintojen automaattista lähettämistä varten raspille ssh-avaimen komennolla 'ssh-keygen -t rsa' ja lähetin sen halavalle sallittujen ssh-avainten kansioon:
+'scp /root/.ssh/id_rsa.pub joalmikk@halava.cc.jyu.fi:.ssh/authorized_keys'
+
+Käynnistin crontabin uudelleen komennolla '/etc/init.d/cron restart' ja sain havaita että aseman varttitunnin välein tekemät säähavainnot päivittyvät nyt näkyville World Wide Webiin osoitteeseen:
+http://users.jyu.fi/~joalmikk/saa/
